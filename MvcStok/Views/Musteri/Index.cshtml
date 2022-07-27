@@ -5,12 +5,14 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-
+<a href="/MUSTERI/YeniMusteri" style="margin-bottom: 15px" class="btn btn-primary">YENİ MÜŞTERİ EKLE</a>
 <table class="table table-bordered">
     <tr>
         <th>MÜSTERİ ID</th>
         <th>MÜSTERİ ADI</th>
         <th>MÜŞTERİ SOYADI</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
     </tr>
     <tbody>
     @foreach (var musteri in Model)
@@ -19,10 +21,9 @@
             <th>@musteri.MUSTERIID</th>
             <td>@musteri.MUSTERIAD</td>
             <td>@musteri.MUSTERISOYAD</td>
+            <td><a href="/MUSTERI/SIL/@musteri.MUSTERIID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/MUSTERI/MusteriGetir/@musteri.MUSTERIID" class="btn btn-success">GÜNCELLE</a></td>
         </tr>
     }
     </tbody>
 </table>
-
-
-

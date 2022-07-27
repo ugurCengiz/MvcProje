@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+<a href="/URUN/UrunEkle" style="margin-bottom: 15px" class="btn btn-primary">YENİ ÜRÜN EKLE</a>
 
 <table class="table table-bordered">
     <tr>
@@ -13,6 +14,8 @@
         <th>KATEGORİ</th>
         <th>FİYAT</th>
         <th>STOk</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
     </tr>
     <tbody>
     @foreach (var urn in Model)
@@ -21,11 +24,14 @@
             <th>@urn.URUNID</th>
             <td>@urn.URUNAD</td>
             <td>@urn.MARKA</td>
-            <td>@urn.URUNKATEGORI</td>
+            <td>@urn.TBLKATEGORILER.KATEGORIAD</td>
             <td>@urn.FIYAT</td>
             <td>@urn.STOK</td>
+            <td><a href="/URUN/SIL/@urn.URUNID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/URUN/GUNCELLE/@urn.URUNID" class="btn btn-success">GÜNCELLE</a></td>
         </tr>
     }
     </tbody>
 </table>
+
 
