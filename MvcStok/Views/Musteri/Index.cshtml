@@ -4,8 +4,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+@using (Html.BeginForm("Index", "Musteri", FormMethod.Get))
+{
+    <p>
+        Aranacak Müşteri Adı : @Html.TextBox("p")
+        <input type="submit" value="Ara"/>
+    </p>
+}
 
-<a href="/MUSTERI/YeniMusteri" style="margin-bottom: 15px" class="btn btn-primary">YENİ MÜŞTERİ EKLE</a>
+
 <table class="table table-bordered">
     <tr>
         <th>MÜSTERİ ID</th>
@@ -13,6 +20,7 @@
         <th>MÜŞTERİ SOYADI</th>
         <th>SİL</th>
         <th>GÜNCELLE</th>
+        <th>Alert</th>
     </tr>
     <tbody>
     @foreach (var musteri in Model)
@@ -23,7 +31,9 @@
             <td>@musteri.MUSTERISOYAD</td>
             <td><a href="/MUSTERI/SIL/@musteri.MUSTERIID" class="btn btn-danger">SİL</a></td>
             <td><a href="/MUSTERI/MusteriGetir/@musteri.MUSTERIID" class="btn btn-success">GÜNCELLE</a></td>
+            <td>@Html.ActionLink("SİL BUTONU", "SIL", new { id = musteri.MUSTERIID }, new { @class = "btn btn-warning", onclick = "return confirm('Gercekten Silmek İstiyor Musunuz ?')" })</td>
         </tr>
     }
     </tbody>
 </table>
+<a href="/MUSTERI/YeniMusteri" style="margin-bottom: 15px" class="btn btn-primary">YENİ MÜŞTERİ EKLE</a>

@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace MvcStok.Models.Entity
 {
     using System;
@@ -21,6 +23,8 @@ namespace MvcStok.Models.Entity
         }
     
         public short KATEGORIID { get; set; }
+
+        [Required(ErrorMessage = "Kategori Adýný Giriniz !")]
         public string KATEGORIAD { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
